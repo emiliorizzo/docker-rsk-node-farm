@@ -1,8 +1,34 @@
 version: '3.7'
+
 services:
-  rsk-node:
+  rsk-node01:
     build: ./rskj-node
     image: rskj-node:latest
+    volumes:
+      - node_data01:/rsk-node/db
     ports:
-      - 40000-40010:4444
-      - 40050-40060:4445
+      - 40444:4444
+      - 40445:4445
+      
+  rsk-node02:
+    build: ./rskj-node
+    image: rskj-node:latest
+    volumes:
+      - node_data02:/rsk-node/db
+    ports:
+      - 41444:4444
+      - 41445:4445
+
+  rsk-node03:
+    build: ./rskj-node
+    image: rskj-node:latest
+    volumes:
+      - node_data03:/rsk-node/db
+    ports:
+      - 42444:4444
+      - 42445:4445      
+
+volumes: 
+  node_data01:
+  node_data02:
+  node_data03:  
