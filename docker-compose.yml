@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  rsk-node:
+    build: ./rskj-node
+    image: rskj-node:latest
+    ports:
+      - 40000-40010:4444
+      - 40050-40060:4445
